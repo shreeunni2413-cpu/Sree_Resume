@@ -1,0 +1,725 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sreeprabha Unnikrishnan | Marketing Coordinator Portfolio</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: #0a0a0a;
+            color: #ffffff;
+            overflow-x: hidden;
+        }
+
+        /* Animated background */
+        .stars {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .star {
+            position: absolute;
+            width: 2px;
+            height: 2px;
+            background: white;
+            border-radius: 50%;
+            animation: twinkle 3s infinite;
+        }
+
+        @keyframes twinkle {
+            0%, 100% { opacity: 0.3; }
+            50% { opacity: 1; }
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 1.5rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(10, 10, 10, 0.8);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .logo {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: #FFD700;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: #ffffff;
+            text-decoration: none;
+            transition: color 0.3s;
+            font-weight: 500;
+        }
+
+        .nav-links a:hover {
+            color: #FFD700;
+        }
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 0 5%;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 900px;
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, #FFD700, #FFA500);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: fadeInUp 0.8s ease-out;
+        }
+
+        .hero .subtitle {
+            font-size: 1.5rem;
+            color: #cccccc;
+            margin-bottom: 2rem;
+            animation: fadeInUp 0.8s ease-out 0.2s backwards;
+        }
+
+        .hero .tagline {
+            font-size: 1.1rem;
+            color: #999999;
+            font-style: italic;
+            margin-bottom: 3rem;
+            animation: fadeInUp 0.8s ease-out 0.4s backwards;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 1rem 2.5rem;
+            background: linear-gradient(135deg, #FFD700, #FFA500);
+            color: #0a0a0a;
+            text-decoration: none;
+            font-weight: 700;
+            border-radius: 50px;
+            transition: transform 0.3s, box-shadow 0.3s;
+            animation: fadeInUp 0.8s ease-out 0.6s backwards;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(255, 215, 0, 0.3);
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Section Styles */
+        section {
+            position: relative;
+            z-index: 1;
+            padding: 6rem 5%;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 3rem;
+            text-align: center;
+            background: linear-gradient(135deg, #FFD700, #FFA500);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        /* About Section */
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .about-text {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #cccccc;
+        }
+
+        .about-text p {
+            margin-bottom: 1.5rem;
+        }
+
+        .floating-astronaut {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .floating-astronaut img {
+            max-width: 300px;
+            width: 100%;
+            animation: float 6s ease-in-out infinite;
+            filter: drop-shadow(0 0 30px rgba(255, 215, 0, 0.3));
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+
+        .highlight {
+            color: #FFD700;
+            font-weight: 600;
+        }
+
+        /* Skills Section */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .skill-card {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 2.5rem;
+            border-radius: 15px;
+            border: 1px solid rgba(255, 215, 0, 0.2);
+            transition: transform 0.3s, background 0.3s;
+        }
+
+        .skill-card:hover {
+            transform: translateY(-5px);
+            background: rgba(255, 215, 0, 0.1);
+        }
+
+        .skill-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .skill-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: #FFD700;
+        }
+
+        .skill-card ul {
+            list-style: none;
+            color: #cccccc;
+            line-height: 1.8;
+        }
+
+        .skill-card li::before {
+            content: "→ ";
+            color: #FFD700;
+            margin-right: 0.5rem;
+        }
+
+        /* Experience Section */
+        .experience-timeline {
+            position: relative;
+            padding-left: 3rem;
+        }
+
+        .experience-timeline::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: linear-gradient(180deg, #FFD700, #FFA500);
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 3rem;
+            padding: 2rem;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            border-left: 3px solid #FFD700;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -3.5rem;
+            top: 2rem;
+            width: 12px;
+            height: 12px;
+            background: #FFD700;
+            border-radius: 50%;
+            border: 3px solid #0a0a0a;
+        }
+
+        .timeline-item h3 {
+            font-size: 1.5rem;
+            color: #FFD700;
+            margin-bottom: 0.5rem;
+        }
+
+        .timeline-item .role {
+            color: #FFA500;
+            font-weight: 600;
+            margin-bottom: 0.3rem;
+        }
+
+        .timeline-item .date {
+            color: #999999;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+
+        .timeline-item ul {
+            list-style: none;
+            color: #cccccc;
+            line-height: 1.8;
+        }
+
+        .timeline-item li {
+            margin-bottom: 0.8rem;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        .timeline-item li::before {
+            content: "▹";
+            color: #FFD700;
+            position: absolute;
+            left: 0;
+            font-weight: bold;
+        }
+
+        /* Why Me Section */
+        .why-me-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .why-card {
+            text-align: center;
+            padding: 2rem;
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 15px;
+            border: 1px solid rgba(255, 215, 0, 0.2);
+            transition: all 0.3s;
+        }
+
+        .why-card:hover {
+            background: rgba(255, 215, 0, 0.1);
+            transform: scale(1.05);
+        }
+
+        .why-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .why-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            color: #FFD700;
+        }
+
+        .why-card p {
+            color: #cccccc;
+            line-height: 1.6;
+        }
+
+        /* Contact Section */
+        .contact-content {
+            text-align: center;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .contact-content p {
+            font-size: 1.2rem;
+            color: #cccccc;
+            margin-bottom: 2rem;
+            line-height: 1.8;
+        }
+
+        .contact-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .contact-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 1rem 2rem;
+            background: rgba(255, 255, 255, 0.05);
+            color: #ffffff;
+            text-decoration: none;
+            border-radius: 50px;
+            border: 1px solid rgba(255, 215, 0, 0.3);
+            transition: all 0.3s;
+        }
+
+        .contact-link:hover {
+            background: rgba(255, 215, 0, 0.2);
+            border-color: #FFD700;
+            transform: translateY(-3px);
+        }
+
+        /* Footer */
+        footer {
+            position: relative;
+            z-index: 1;
+            text-align: center;
+            padding: 2rem 5%;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #999999;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero .subtitle {
+                font-size: 1.2rem;
+            }
+
+            .about-content {
+                grid-template-columns: 1fr;
+            }
+
+            .floating-astronaut {
+                order: -1;
+                margin-bottom: 2rem;
+            }
+
+            .floating-astronaut img {
+                max-width: 200px;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .experience-timeline {
+                padding-left: 2rem;
+            }
+
+            section {
+                padding: 4rem 5%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Animated Stars Background -->
+    <div class="stars" id="stars"></div>
+
+    <!-- Navigation -->
+    <nav>
+        <div class="logo">⚡ Sreeprabha Unnikrishnan</div>
+        <ul class="nav-links">
+            <li><a href="#about">About</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#experience">Experience</a></li>
+            <li><a href="#why-me">Why Me</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Your Next Marketing Coordinator</h1>
+            <p class="subtitle">Strategic. Organized. Ready to Launch.</p>
+            <p class="tagline">The critical link between clients and creative excellence</p>
+            <a href="#contact" class="cta-button">Let's Connect</a>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about">
+        <h2 class="section-title">Built for Midnight Marketing</h2>
+        <div class="about-content">
+            <div class="about-text">
+                <p>I thrive in fast-paced environments where <span class="highlight">every detail matters</span>. I'm the connector between creative teams and clients, ensuring nothing slips through the cracks while keeping projects on track and on brand.</p>
+                <p>With experience coordinating cross-functional campaigns, managing social media calendars, and handling real-time client engagement, I bring the organizational skills and strategic mindset Midnight Marketing needs. I'm ready to become integral to your team's success.</p>
+            </div>
+            <div class="floating-astronaut">
+                <img src="https://midnightmarketing.com/wp-content/uploads/2024/11/midnightmarketing_54353_httpss.mj_.run50dZym_JIf0_Golden_3d_astr_a5de2bb9-7fd2-46c1-8790-52014b8fb8b5aa-1.png" alt="Midnight Marketing Brand">
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills">
+        <h2 class="section-title">What I Bring to Your Team</h2>
+        <div class="skills-grid">
+            <div class="skill-card">
+                <div class="skill-icon">🎯</div>
+                <h3>Campaign Coordination</h3>
+                <ul>
+                    <li>Social media calendar creation and management</li>
+                    <li>Cross-departmental project orchestration</li>
+                    <li>Multi-platform content scheduling (Hootsuite)</li>
+                    <li>Brand voice mastery and consistency</li>
+                </ul>
+            </div>
+            <div class="skill-card">
+                <div class="skill-icon">📊</div>
+                <h3>Strategic Execution</h3>
+                <ul>
+                    <li>Timeline monitoring and deadline management</li>
+                    <li>Data-driven decision making and optimization</li>
+                    <li>Campaign performance tracking and reporting</li>
+                    <li>Trend monitoring for engagement opportunities</li>
+                </ul>
+            </div>
+            <div class="skill-card">
+                <div class="skill-icon">🚀</div>
+                <h3>Client & Community Management</h3>
+                <ul>
+                    <li>Real-time social media engagement</li>
+                    <li>Community growth and reputation management</li>
+                    <li>Proactive, solutions-focused communication</li>
+                    <li>Quality assurance for all deliverables</li>
+                </ul>
+            </div>
+            <div class="skill-card">
+                <div class="skill-icon">⚙️</div>
+                <h3>Technical Capabilities</h3>
+                <ul>
+                    <li>Social media management platforms</li>
+                    <li>WordPress CMS and analytics tracking</li>
+                    <li>Project management tools (Notion)</li>
+                    <li>Strong copywriting and content creation</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience">
+        <h2 class="section-title">Proven Track Record</h2>
+        <div class="experience-timeline">
+            <div class="timeline-item">
+                <h3>Urban Minds</h3>
+                <p class="role">Communications Coordinator (Volunteer)</p>
+                <p class="date">July 2025 – Present | Toronto, Ontario</p>
+                <ul>
+                    <li>Managed digital engagement strategy across email marketing (Brevo) and social platforms to amplify non-profit mission and community reach</li>
+                    <li>Leveraged Hootsuite to schedule and track multi-platform campaigns, improving posting efficiency by 40%</li>
+                    <li>Coordinated cross-functional campaigns across event, growth, and design teams, ensuring consistent brand storytelling that increased social engagement by 30%</li>
+                    <li>Optimized content performance through WordPress CMS management, tracking engagement metrics to refine messaging and improve conversion</li>
+                </ul>
+            </div>
+            
+            <div class="timeline-item">
+                <h3>EQ Exchange</h3>
+                <p class="role">Marketing Coordinator (Contract)</p>
+                <p class="date">December 2024 – June 2025 | Toronto, Ontario</p>
+                <ul>
+                    <li>Optimized ambassador campaigns generating 535K+ impressions at under $10 CPM while reducing cost per lead through iterative testing</li>
+                    <li>Built data-driven marketing calendars and Notion tracking systems, cutting campaign launch delays by 30% and improving team efficiency</li>
+                    <li>Proactively monitored industry trends and competitor activity, identifying key engagement opportunities that led to 30% increase in brand visibility</li>
+                    <li>Selected to represent company at Hong Kong conference in 2nd month, promoting new app launch to 200+ potential users alongside CEO and senior leadership</li>
+                </ul>
+            </div>
+
+            <div class="timeline-item">
+                <h3>Alpha Zegus</h3>
+                <p class="role">Account Manager</p>
+                <p class="date">January 2022 – August 2022</p>
+                <ul>
+                    <li>Successfully managed 10+ client campaigns from concept to execution, ensuring 100% on-time delivery and brand consistency, resulting in 20% increase in client satisfaction</li>
+                    <li>Led production logistics for high-impact brand events (photoshoots, launches, promotional activations), ensuring seamless vendor and internal team alignment</li>
+                    <li>Engineered structured project management workflows and communication protocols, cutting project delays by 2 weeks and increasing client satisfaction by 25%</li>
+                    <li>Delivered 20% sales increase by analyzing multi-platform campaign data and optimizing budget allocation across Instagram and Google Ads</li>
+                </ul>
+            </div>
+
+            <div class="timeline-item">
+                <h3>Famous Innovations</h3>
+                <p class="role">Senior Account Executive</p>
+                <p class="date">January 2021 – November 2021</p>
+                <ul>
+                    <li>Developed and managed 30+ monthly social media calendars, increasing audience growth by 40% and improving average post engagement by 35%</li>
+                    <li>Spearheaded reputation management for tech brand by creating customized response templates and managing real-time community engagement, improving sentiment score by 40%</li>
+                    <li>Conducted market analysis and audience segmentation research, using insights to refine targeting strategy and improve campaign efficiency by 15%</li>
+                    <li>Oversaw quality assurance for 100+ marketing deliverables monthly, ensuring all assets met brand guidelines and objectives</li>
+                </ul>
+            </div>
+
+            <div class="timeline-item">
+                <h3>The Media Ant</h3>
+                <p class="role">Assistant Manager – Partnerships</p>
+                <p class="date">July 2017 – October 2018</p>
+                <ul>
+                    <li>Negotiated with 100+ media vendors securing 15-30% cost reductions, decreasing customer acquisition costs and contributing to 10% monthly revenue growth</li>
+                    <li>Streamlined campaign delivery by managing multiple concurrent client projects daily, prioritizing production schedules with zero launch delays</li>
+                    <li>Oversaw strategic engagement with 30+ critical stakeholders, unlocking premium ad inventory access for high-revenue campaigns</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Me Section -->
+    <section id="why-me">
+        <h2 class="section-title">Why I'm Your Marketing Coordinator</h2>
+        <div class="why-me-grid">
+            <div class="why-card">
+                <div class="why-icon">🔥</div>
+                <h3>Pressure Creates Diamonds</h3>
+                <p>Fast-paced environments energize me. Multiple deadlines and concurrent projects are where I thrive, not just survive.</p>
+            </div>
+            <div class="why-card">
+                <div class="why-icon">🎨</div>
+                <h3>Creative Coordination Expert</h3>
+                <p>I bridge the gap between creative vision and tactical execution, coordinating across copywriting, design, video, and web teams seamlessly.</p>
+            </div>
+            <div class="why-card">
+                <div class="why-icon">🤝</div>
+                <h3>Natural Connector</h3>
+                <p>I translate client needs into creative briefs and turn complex strategies into clear, actionable deliverables that teams can execute.</p>
+            </div>
+            <div class="why-card">
+                <div class="why-icon">📈</div>
+                <h3>Growth Obsessed</h3>
+                <p>I seek challenges that sharpen my skills. I want to become a stronger communicator, strategic thinker, and master multitasker.</p>
+            </div>
+            <div class="why-card">
+                <div class="why-icon">🎯</div>
+                <h3>Detail Fanatical</h3>
+                <p>Nothing escapes my radar. I catch the typos, remember the deadlines, and ensure brand consistency across every single touchpoint.</p>
+            </div>
+            <div class="why-card">
+                <div class="why-icon">💡</div>
+                <h3>Proactive Problem Solver</h3>
+                <p>I anticipate roadblocks before they appear and implement solutions that keep projects moving forward smoothly and on schedule.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <h2 class="section-title">Let's Build Together</h2>
+        <div class="contact-content">
+            <p>I'm ready to become an integral part of Midnight Marketing's team. Let's discuss how I can help coordinate campaigns that deliver bold moves with quiet precision.</p>
+            <div class="contact-links">
+                <p style="font-size: 1.3rem; color: #FFD700; margin-bottom: 1rem;">
+                    📧 shree.unni2413@gmail.com
+                </p>
+                <a href="https://www.linkedin.com/in/sreeprabha-unnikrishnan/" target="_blank" class="contact-link">
+                    💼 LinkedIn Profile
+                </a>
+                <a href="tel:+14164506859" class="contact-link">
+                    📞 416-450-6859
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>Crafted for Midnight Marketing | Sreeprabha Unnikrishnan © 2024</p>
+        <p style="font-style: italic; color: #666; margin-top: 1rem;">
+            Powering bold moves with quiet precision
+        </p>
+    </footer>
+
+    <script>
+        // Generate animated stars
+        const starsContainer = document.getElementById('stars');
+        for (let i = 0; i < 100; i++) {
+            const star = document.createElement('div');
+            star.className = 'star';
+            star.style.left = Math.random() * 100 + '%';
+            star.style.top = Math.random() * 100 + '%';
+            star.style.animationDelay = Math.random() * 3 + 's';
+            starsContainer.appendChild(star);
+        }
+
+        // Smooth scrolling for navigation
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Add scroll reveal animation
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.skill-card, .timeline-item, .why-card').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(30px)';
+            el.style.transition = 'opacity 0.6s ease-out, transform 0.6s ease-out';
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>
